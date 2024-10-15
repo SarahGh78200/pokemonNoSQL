@@ -2,18 +2,21 @@
 
 namespace Config;
 
-use PDO;
-use Exception;
+use MongoDB\Driver\Manager;
+use MongoDB\Driver\Exception\Exception;
 
-class DataBase
+class Database
 {
     static function getConnection()
     {
         try {
-            $pdo = new PDO('mysql:host=localhost;dbname=familytask;charset=utf8', 'root');
+            // Crée un gestionnaire MongoDB pour la connexion locale par défaut (ou modifiez l'URI selon vos besoins)
+            $mongo = new Manager("mongodb://localhost:27017");
         } catch (Exception $e) {
-            die('Erreur :' . $e->getMessage());
+            // En cas d'erreur, affiche un message et arrête l'exécution du script
+            die('Erreur : ' . $e->getMessage());
         }
-        return $pdo;
+        // Retourne l'objet Manager pour l'utiliser dans les opérations MongoDB
+        return $mongo;
     }
 }

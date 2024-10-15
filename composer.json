@@ -1,5 +1,5 @@
 {
-	"name": "sarah/family-task",
+	"name": "vera/projettodolistpoissy",
 	"autoload": {
 		"psr-4": {
 			"App\\": "src/",
@@ -8,10 +8,11 @@
 	},
 	"authors": [
 		{
-			"name": "sarah"
+			"name": "vera"
 		}
 	],
 	"require": {
-		"ext-pdo": "*"
+		"mongodb/mongodb": "^1.20",
+		"ext-mongodb": "*"
 	}
 }
